@@ -25,6 +25,33 @@ namespace Filmoteka
         public MainPage()
         {
             this.InitializeComponent();
+            Frame.Navigate(typeof (Home));
+            TextBlockTitle.Text = "Home";
+        }
+
+        private void ButtonHamburger_OnClick(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Home.IsSelected)
+            {
+                Frame.Navigate(typeof (Home));
+                TextBlockTitle.Text = "Home";
+            }
+            else if (Movies.IsSelected)
+            {
+                Frame.Navigate(typeof (Movies));
+                TextBlockTitle.Text = "Movies";
+            }
+            else if (Settings.IsSelected)
+            {
+                Frame.Navigate(typeof(Settings));
+                TextBlockTitle.Text = "Settings";
+            }
+
         }
     }
 }
